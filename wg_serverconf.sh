@@ -3,20 +3,12 @@
 
 # Create the server.conf (normally wg0.conf) with a new pair of keys, generated here. Move The servers priv key to /etc/wireguard/keys/serverkeys and the new wg0.conf to /etc/wireguard/
 
-if ! [ -d /etc/wireguard/ ]
-then
-	sudo mkdir /etc/wireguard/
-fi
-if ! [ -d /etc/wireguard/keys/ ]
-then
-	sudo mkdir /etc/wireguard/keys/
-fi
 if ! [ -d /etc/wireguard/keys/serverkeys/ ]
 then
-	sudo mkdir /etc/wireguard/keys/serverkeys/
+	sudo mkdir -p /etc/wireguard/keys/serverkeys/
 fi
 
-# Creating a new pair of keys:
+# Creating a new pair of server-keys:
 
 wg genkey | tee server_private_key | wg pubkey > server_public_key
 
