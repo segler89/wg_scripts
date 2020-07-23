@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This short script proofs if the IP has changed. If so, it initialized a restart of wireguard with the new IP-information. For automation it should be run as a cron job at least once per day.
+
 file="/tmp/digIP.txt"
 digIP=$(dig +short dominicb.ddns.net)
 
